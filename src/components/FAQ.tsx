@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: 'Do I need any technical experience?',
-    a: 'None at all. The entire platform is managed by us. You never touch code, configure servers, or deal with APIs. If you can use social media, you can run a prop firm with PROPFLOWTECH.',
+    a: 'None at all. The entire platform is managed by us. You never touch code, configure servers, or deal with APIs. If you can use social media, you can run a prop firm with PropFlowTech.',
   },
   {
     q: 'Do I need to set up a company or handle compliance?',
@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: 'What if I have never run a prop firm before?',
-    a: 'Most of our clients have not. That is exactly the point. We built PROPFLOWTECH specifically for ambitious entrepreneurs with zero prop firm experience. We provide the infrastructure and the expertise.',
+    a: 'Most of our clients have not. That is exactly the point. We built PropFlowTech specifically for ambitious entrepreneurs with zero prop firm experience. We provide the infrastructure and the expertise.',
   },
   {
     q: 'What trading platforms will my traders use?',
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'Can I fully customize the platform with my brand?',
-    a: 'Absolutely. Your traders see your logo, your colors, your domain name. The entire experience is white-labeled to your brand. There is no mention of PROPFLOWTECH anywhere your traders can see.',
+    a: 'Absolutely. Your traders see your logo, your colors, your domain name. The entire experience is white-labeled to your brand. There is no mention of PropFlowTech anywhere your traders can see.',
   },
 ];
 

@@ -25,7 +25,7 @@ const caseStudies: CaseStudy[] = [
     founderRole: 'Founder & CEO',
     timeline: 'Launched in 3 days',
     description:
-      'This firm came to PROPFLOWTECH with a strong brand presence but zero technical infrastructure. Within 72 hours of onboarding, their fully branded platform was live — complete with MT5 integration, automated challenge management, and a custom trader dashboard. Within four months, they scaled to over 2,000 active traders across 14 countries.',
+      'This firm came to PropFlowTech with a strong brand presence but zero technical infrastructure. Within 72 hours of onboarding, their fully branded platform was live — complete with MT5 integration, automated challenge management, and a custom trader dashboard. Within four months, they scaled to over 2,000 active traders across 14 countries.',
     accentColor: '#00ddb8',
     metrics: [
       { label: 'Time to Launch', value: '3 days' },
@@ -42,7 +42,7 @@ const caseStudies: CaseStudy[] = [
     founderRole: 'Managing Director',
     timeline: 'Launched in 2 days',
     description:
-      'This firm needed a compliant, multi-language platform to serve the European market. PROPFLOWTECH delivered a white-label solution with TradeLocker integration, multi-currency payment processing, and GDPR-compliant data handling. By focusing on an underserved regional niche, they were able to grow rapidly where larger firms had overlooked the opportunity.',
+      'This firm needed a compliant, multi-language platform to serve the European market. PropFlowTech delivered a white-label solution with TradeLocker integration, multi-currency payment processing, and GDPR-compliant data handling. By focusing on an underserved regional niche, they were able to grow rapidly where larger firms had overlooked the opportunity.',
     accentColor: '#00aaff',
     metrics: [
       { label: 'Time to Launch', value: '2 days' },
@@ -59,7 +59,7 @@ const caseStudies: CaseStudy[] = [
     founderRole: 'Founder',
     timeline: 'Launched in 4 days',
     description:
-      'Founded by a trading educator with a large online following, this firm leveraged an existing audience to drive immediate traction. PROPFLOWTECH handled the complete technical buildout — including a custom affiliate system that turned their student community into a referral engine. The result: $120K in monthly revenue within 90 days of launch.',
+      'Founded by a trading educator with a large online following, this firm leveraged an existing audience to drive immediate traction. PropFlowTech handled the complete technical buildout — including a custom affiliate system that turned their student community into a referral engine. The result: $120K in monthly revenue within 90 days of launch.',
     accentColor: '#7c5cff',
     metrics: [
       { label: 'Time to Launch', value: '4 days' },

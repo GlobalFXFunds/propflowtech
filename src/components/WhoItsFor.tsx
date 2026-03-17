@@ -93,7 +93,7 @@ const WhoItsFor: React.FC = () => {
                 maxWidth: 460,
               }}
             >
-              PROPFLOWTECH handles the entire technical foundation so you can
+              PropFlowTech handles the entire technical foundation so you can
               launch a professional prop firm without writing a single line of
               code or hiring a single developer.
             </p>
