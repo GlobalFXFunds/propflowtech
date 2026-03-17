@@ -12,7 +12,6 @@ interface CaseStudy {
   founderRole: string;
   timeline: string;
   description: string;
-  quote: string;
   accentColor: string;
   metrics: { label: string; value: string }[];
   tags: string[];
@@ -27,8 +26,6 @@ const caseStudies: CaseStudy[] = [
     timeline: 'Launched in 3 days',
     description:
       'This firm came to PROPFLOWTECH with a strong brand presence but zero technical infrastructure. Within 72 hours of onboarding, their fully branded platform was live — complete with MT5 integration, automated challenge management, and a custom trader dashboard. Within four months, they scaled to over 2,000 active traders across 14 countries.',
-    quote:
-      'We went from an idea on a whiteboard to a fully operational prop firm in under a week. The speed was unreal.',
     accentColor: '#00ddb8',
     metrics: [
       { label: 'Time to Launch', value: '3 days' },
@@ -46,8 +43,6 @@ const caseStudies: CaseStudy[] = [
     timeline: 'Launched in 2 days',
     description:
       'This firm needed a compliant, multi-language platform to serve the European market. PROPFLOWTECH delivered a white-label solution with TradeLocker integration, multi-currency payment processing, and GDPR-compliant data handling. By focusing on an underserved regional niche, they were able to grow rapidly where larger firms had overlooked the opportunity.',
-    quote:
-      'The compliance framework alone saved us months of legal work. We were able to focus entirely on building our brand and acquiring traders.',
     accentColor: '#00aaff',
     metrics: [
       { label: 'Time to Launch', value: '2 days' },
@@ -65,8 +60,6 @@ const caseStudies: CaseStudy[] = [
     timeline: 'Launched in 4 days',
     description:
       'Founded by a trading educator with a large online following, this firm leveraged an existing audience to drive immediate traction. PROPFLOWTECH handled the complete technical buildout — including a custom affiliate system that turned their student community into a referral engine. The result: $120K in monthly revenue within 90 days of launch.',
-    quote:
-      'I had the audience, but I had no idea how to build a prop firm. PROPFLOWTECH made it possible without me writing a single line of code.',
     accentColor: '#7c5cff',
     metrics: [
       { label: 'Time to Launch', value: '4 days' },
@@ -320,48 +313,11 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, i
               fontSize: 15,
               lineHeight: 1.8,
               color: 'var(--text-secondary)',
-              marginBottom: 32,
               maxWidth: 720,
             }}
           >
             {study.description}
           </motion.p>
-
-          {/* Quote */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={isVisible ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.4, ease }}
-            style={{
-              padding: '24px 28px',
-              borderLeft: `3px solid ${study.accentColor}`,
-              background: `${study.accentColor}04`,
-              borderRadius: '0 14px 14px 0',
-            }}
-          >
-            <p
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: 15,
-                fontStyle: 'italic',
-                lineHeight: 1.7,
-                color: 'var(--text-primary)',
-                marginBottom: 8,
-              }}
-            >
-              "{study.quote}"
-            </p>
-            <div
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 12,
-                fontWeight: 600,
-                color: study.accentColor,
-              }}
-            >
-              — {study.founder}, {study.firmName}
-            </div>
-          </motion.div>
         </div>
       </motion.div>
     </section>
