@@ -8,7 +8,7 @@ const stats = [
   { label: 'Active Traders', value: '2,847', change: '+12%', positive: true },
   { label: 'Revenue (MTD)', value: '$184,920', change: '+23%', positive: true },
   { label: 'Funded Accounts', value: '412', change: '+8%', positive: true },
-  { label: 'Payout Ratio', value: '94.2%', change: '+1.8%', positive: true },
+  { label: 'Completion Rate', value: '94.2%', change: '+1.8%', positive: true },
 ];
 
 const recentTraders = [
@@ -78,6 +78,7 @@ const DashboardMockup: React.FC = () => {
       <div style={{ display: 'flex', minHeight: 380 }}>
         {/* Sidebar */}
         <div
+          className="dashboard-sidebar"
           style={{
             width: 200,
             borderRight: '1px solid var(--glass-border)',
@@ -112,7 +113,7 @@ const DashboardMockup: React.FC = () => {
               { label: 'Overview', active: true },
               { label: 'Traders', active: false },
               { label: 'Accounts', active: false },
-              { label: 'Payouts', active: false },
+              { label: 'Withdrawals', active: false },
               { label: 'Challenges', active: false },
               { label: 'Revenue', active: false },
               { label: 'Settings', active: false },
@@ -157,7 +158,7 @@ const DashboardMockup: React.FC = () => {
           </div>
 
           {/* Stats row */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
+          <div className="dashboard-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 20 }}>
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -187,7 +188,7 @@ const DashboardMockup: React.FC = () => {
           </div>
 
           {/* Chart + Table row */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div className="dashboard-content-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             {/* Chart */}
             <motion.div
               initial={{ opacity: 0 }}

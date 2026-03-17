@@ -9,6 +9,7 @@ const Hero: React.FC = () => {
     <section
       style={{
         position: 'relative',
+        zIndex: 0,
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
@@ -35,43 +36,6 @@ const Hero: React.FC = () => {
       />
 
       <div className="content-wrapper" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.8, delay: 0.4, ease }}
-          style={{ marginBottom: 28 }}
-        >
-          <span
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              padding: '8px 18px',
-              background: 'var(--glass-bg)',
-              border: '1px solid var(--glass-border)',
-              borderRadius: 100,
-              fontFamily: 'var(--font-body)',
-              fontSize: 13,
-              fontWeight: 500,
-              color: 'var(--text-secondary)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-            }}
-          >
-            <span
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: '50%',
-                background: 'var(--accent)',
-                boxShadow: '0 0 8px var(--accent-glow)',
-              }}
-            />
-            Trusted by 10+ prop trading firms worldwide
-          </span>
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}

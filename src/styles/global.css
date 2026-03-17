@@ -285,3 +285,62 @@ body {
   border-color: var(--glass-border-bright);
   color: var(--text-primary);
 }
+
+/* ═══════════════════════════════════════════════════
+   MARQUEE
+   ═══════════════════════════════════════════════════ */
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE RESPONSIVE
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: clamp(60px, 8vh, 100px);
+  }
+
+  .atmosphere__orb--1 { width: 400px; height: 400px; }
+  .atmosphere__orb--2 { width: 350px; height: 350px; }
+  .atmosphere__orb--3 { width: 300px; height: 300px; }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: clamp(48px, 6vh, 80px);
+    --glass-blur: 24px;
+    --glass-radius: 18px;
+  }
+
+  .atmosphere__orb {
+    opacity: 0.2;
+    filter: blur(80px);
+  }
+  .atmosphere__orb--1 { width: 280px; height: 280px; }
+  .atmosphere__orb--2 { width: 240px; height: 240px; }
+  .atmosphere__orb--3 { width: 200px; height: 200px; }
+
+  .btn-primary {
+    padding: 14px 28px;
+    font-size: 14px;
+  }
+
+  .btn-ghost {
+    padding: 12px 22px;
+    font-size: 13px;
+  }
+}
