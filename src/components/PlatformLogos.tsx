@@ -220,15 +220,11 @@ const PlatformLogos: React.FC = () => {
       <style>{`
         @media (max-width: 640px) {
           .platform-bento {
-            grid-template-columns: 1fr !important;
-            grid-template-areas:
-              "mt4"
-              "mt5"
-              "ct"
-              "tl" !important;
+            gap: 10px !important;
           }
           .platform-bento-cell {
-            min-height: 150px !important;
+            min-height: 130px !important;
+            padding: 20px 16px !important;
           }
         }
       `}</style>
