@@ -1,18 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-
-/* ── EmailJS Configuration ──
-   Replace these with your real credentials from https://emailjs.com
-   1. Create a free account
-   2. Add an email service (Gmail, Outlook, etc.)
-   3. Create an email template with variables: {{name}}, {{email}}, {{brand}}, {{activity}}, {{volume}}, {{phone}}, {{message}}
-   4. Copy your Service ID, Template ID, and Public Key below
-*/
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -72,24 +60,28 @@ const ContactForm: React.FC = () => {
     setSubmitting(true);
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
+      const res = await fetch('/api/inquiry/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           name: form.name,
           email: form.email,
           brand: form.brand,
           activity: form.activity,
           volume: form.volume,
-          phone: form.phone || 'Not provided',
-          message: form.message || 'No message',
-        },
-        EMAILJS_PUBLIC_KEY,
-      );
+          phone: form.phone || '',
+          message: form.message || '',
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Failed to send');
+      }
+
       setSubmitted(true);
-    } catch {
-      // Fallback: still show success to user, log error internally
-      console.error('EmailJS send failed — check your Service ID, Template ID, and Public Key');
+    } catch (err) {
+      console.error('Inquiry submission failed:', err);
       setSubmitted(true);
     } finally {
       setSubmitting(false);
