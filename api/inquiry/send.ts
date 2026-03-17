@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 
 /* ─── Configuration ─── */
 
-const FROM_ADDRESS = 'PropFlowTech <noreply@propflowtech.com>';
+const FROM_ADDRESS = 'PropFlowTech <support@globalforexfunds.com>';
 const ADMIN_EMAIL = 'support@globalforexfunds.com';
 
 const BRAND = {
@@ -157,12 +157,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) throw new Error('RESEND_API_KEY is not set');
+    if (!apiKey) {
+      console.error('[propflowtech-inquiry] RESEND_API_KEY not set');
+      return res.status(500).json({ error: 'Email service not configured.' });
+    }
     const resend = new Resend(apiKey);
 
     const html = buildEmailHtml(name, email, brand, activity, volume, phone, message);
 
-    const { error } = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: FROM_ADDRESS,
       to: ADMIN_EMAIL,
       replyTo: email,
@@ -171,13 +174,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     if (error) {
-      console.error('[propflowtech-inquiry] Resend error:', error);
-      throw new Error('Email send failed');
+      console.error('[propflowtech-inquiry] Resend error:', JSON.stringify(error));
+      return res.status(500).json({ error: `Email failed: ${error.message}` });
     }
 
+    console.log('[propflowtech-inquiry] Sent successfully, id:', data?.id);
     return res.status(200).json({ success: true });
   } catch (err: any) {
-    console.error('[propflowtech-inquiry] Error:', err);
-    return res.status(500).json({ error: 'Failed to send inquiry. Please try again.' });
+    console.error('[propflowtech-inquiry] Error:', err?.message || err);
+    return res.status(500).json({ error: err?.message || 'Failed to send inquiry. Please try again.' });
   }
 }
