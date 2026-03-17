@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 /* ─── Configuration ─── */
 
 const FROM_ADDRESS = 'PropFlowTech <noreply@propflowtech.com>';
-const ADMIN_EMAIL = 'whitelabel@globalforexfunds.com';
+const ADMIN_EMAIL = 'support@globalforexfunds.com';
 
 const BRAND = {
   bg: '#030308',
