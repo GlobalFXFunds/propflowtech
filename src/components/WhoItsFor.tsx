@@ -14,6 +14,7 @@ const WhoItsFor: React.FC = () => {
         position: 'relative',
         zIndex: 1,
         padding: `var(--section-padding) var(--content-padding)`,
+        overflow: 'hidden',
       }}
     >
       {/* Glow */}
