@@ -21,6 +21,9 @@
     grid-template-columns: repeat(2, 1fr) !important;
     padding: 28px 24px !important;
   }
+  .stats-bar-grid > *:last-child {
+    grid-column: 1 / -1 !important;
+  }
 }
 
 /* Problem/Solution: single column on mobile */
