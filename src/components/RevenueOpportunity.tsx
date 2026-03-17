@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -13,8 +13,8 @@ const tiers = [
 
 const MAX_MONTHLY = tiers[tiers.length - 1].challenges * tiers[tiers.length - 1].avgPrice;
 
-/* Animated counter hook — smoothly interpolates between values */
-function useAnimatedNumber(target: number, duration = 600): number {
+/* Animated counter — only used for result numbers */
+function useAnimatedNumber(target: number, duration = 500): number {
   const [display, setDisplay] = useState(target);
   const frameRef = useRef<number>(0);
   const startRef = useRef(target);
@@ -50,8 +50,6 @@ const RevenueOpportunity: React.FC = () => {
 
   const animatedMonthly = useAnimatedNumber(monthly);
   const animatedAnnual = useAnimatedNumber(annual);
-  const animatedChallenges = useAnimatedNumber(tier.challenges, 400);
-  const animatedPrice = useAnimatedNumber(tier.avgPrice, 400);
 
   return (
     <section
@@ -62,7 +60,7 @@ const RevenueOpportunity: React.FC = () => {
         padding: `var(--section-padding) var(--content-padding)`,
       }}
     >
-      {/* Dual layered glow */}
+      {/* Glow */}
       <div
         style={{
           position: 'absolute',
@@ -76,25 +74,12 @@ const RevenueOpportunity: React.FC = () => {
           pointerEvents: 'none',
         }}
       />
-      <div
-        style={{
-          position: 'absolute',
-          top: '60%',
-          left: '30%',
-          transform: 'translate(-50%, -50%)',
-          width: 400,
-          height: 400,
-          background: 'radial-gradient(circle, rgba(124, 92, 255, 0.06) 0%, transparent 70%)',
-          filter: 'blur(80px)',
-          pointerEvents: 'none',
-        }}
-      />
 
       <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative' }}>
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
-          animate={isVisible ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease }}
           style={{ textAlign: 'center', marginBottom: 48 }}
         >
@@ -152,7 +137,7 @@ const RevenueOpportunity: React.FC = () => {
             overflow: 'hidden',
           }}
         >
-          {/* Tier selector row — tab-style navigation */}
+          {/* Tier selector row */}
           <div
             style={{
               display: 'grid',
@@ -176,7 +161,7 @@ const RevenueOpportunity: React.FC = () => {
                   letterSpacing: '0.06em',
                   textTransform: 'uppercase',
                   cursor: 'pointer',
-                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transition: 'all 0.2s ease',
                   position: 'relative',
                 }}
               >
@@ -196,7 +181,7 @@ const RevenueOpportunity: React.FC = () => {
             ))}
           </div>
 
-          {/* Main calculator body */}
+          {/* Calculator body */}
           <div style={{ padding: 'clamp(28px, 5vw, 52px)' }}>
             {/* Calculation row */}
             <div
@@ -210,27 +195,20 @@ const RevenueOpportunity: React.FC = () => {
                 marginBottom: 40,
               }}
             >
-              {/* Challenges */}
+              {/* Challenges — instant update, no animation */}
               <div style={{ textAlign: 'center' }}>
-                <AnimatePresence mode="popLayout">
-                  <motion.div
-                    key={`challenges-${selected}`}
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.35, ease }}
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: 'clamp(36px, 5vw, 54px)',
-                      fontWeight: 900,
-                      color: 'var(--text-primary)',
-                      letterSpacing: '-0.03em',
-                      lineHeight: 1,
-                    }}
-                  >
-                    {animatedChallenges.toLocaleString()}
-                  </motion.div>
-                </AnimatePresence>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 'clamp(36px, 5vw, 54px)',
+                    fontWeight: 900,
+                    color: 'var(--text-primary)',
+                    letterSpacing: '-0.03em',
+                    lineHeight: 1,
+                  }}
+                >
+                  {tier.challenges.toLocaleString()}
+                </div>
                 <div style={{
                   fontFamily: 'var(--font-body)',
                   fontSize: 12,
@@ -255,27 +233,20 @@ const RevenueOpportunity: React.FC = () => {
                 &times;
               </div>
 
-              {/* Avg price */}
+              {/* Avg price — instant update, no animation */}
               <div style={{ textAlign: 'center' }}>
-                <AnimatePresence mode="popLayout">
-                  <motion.div
-                    key={`price-${selected}`}
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.35, delay: 0.05, ease }}
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: 'clamp(36px, 5vw, 54px)',
-                      fontWeight: 900,
-                      color: 'var(--text-primary)',
-                      letterSpacing: '-0.03em',
-                      lineHeight: 1,
-                    }}
-                  >
-                    ${animatedPrice}
-                  </motion.div>
-                </AnimatePresence>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 'clamp(36px, 5vw, 54px)',
+                    fontWeight: 900,
+                    color: 'var(--text-primary)',
+                    letterSpacing: '-0.03em',
+                    lineHeight: 1,
+                  }}
+                >
+                  ${tier.avgPrice}
+                </div>
                 <div style={{
                   fontFamily: 'var(--font-body)',
                   fontSize: 12,
@@ -300,9 +271,8 @@ const RevenueOpportunity: React.FC = () => {
                 =
               </div>
 
-              {/* Result — monthly */}
+              {/* Result — animated counter */}
               <div style={{ textAlign: 'center', position: 'relative' }}>
-                {/* Result glow */}
                 <div style={{
                   position: 'absolute',
                   top: '50%',
@@ -310,30 +280,27 @@ const RevenueOpportunity: React.FC = () => {
                   transform: 'translate(-50%, -50%)',
                   width: 200,
                   height: 100,
-                  background: 'radial-gradient(circle, rgba(0, 220, 180, 0.2) 0%, transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(0, 170, 255, 0.15) 0%, transparent 70%)',
                   filter: 'blur(30px)',
                   pointerEvents: 'none',
                 }} />
-                <motion.div
+                <div
                   style={{
                     fontFamily: 'var(--font-display)',
                     fontSize: 'clamp(40px, 7vw, 64px)',
                     fontWeight: 900,
                     letterSpacing: '-0.03em',
                     lineHeight: 1,
-                    background: 'linear-gradient(135deg, #00ddb8 0%, #00aaff 50%, #7c5cff 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
+                    color: 'var(--accent)',
                     position: 'relative',
                   }}
                 >
                   ${animatedMonthly.toLocaleString()}
-                </motion.div>
+                </div>
                 <div style={{
                   fontFamily: 'var(--font-body)',
                   fontSize: 12,
-                  color: '#00ddb8',
+                  color: 'var(--accent)',
                   marginTop: 8,
                   fontWeight: 600,
                   textTransform: 'uppercase',
@@ -344,7 +311,7 @@ const RevenueOpportunity: React.FC = () => {
               </div>
             </div>
 
-            {/* Revenue progress bar */}
+            {/* Revenue progress bar — CSS transition, no framer-motion */}
             <div style={{ marginBottom: 32 }}>
               <div style={{
                 display: 'flex',
@@ -365,17 +332,15 @@ const RevenueOpportunity: React.FC = () => {
                 borderRadius: 4,
                 background: 'rgba(255,255,255,0.04)',
                 overflow: 'hidden',
-                position: 'relative',
               }}>
-                <motion.div
-                  animate={{ width: `${barPercent}%` }}
-                  transition={{ duration: 0.7, ease }}
+                <div
                   style={{
                     height: '100%',
                     borderRadius: 4,
-                    background: 'linear-gradient(90deg, #00ddb8 0%, #00aaff 60%, #7c5cff 100%)',
-                    boxShadow: '0 0 20px rgba(0, 220, 180, 0.3)',
-                    position: 'relative',
+                    width: `${barPercent}%`,
+                    background: 'linear-gradient(90deg, var(--accent) 0%, #00ddb8 100%)',
+                    boxShadow: '0 0 16px rgba(0, 170, 255, 0.25)',
+                    transition: 'width 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
                   }}
                 />
               </div>

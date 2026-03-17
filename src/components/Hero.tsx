@@ -53,14 +53,7 @@ const Hero: React.FC = () => {
           }}
         >
           Your Prop Firm.{' '}
-          <span
-            style={{
-              background: 'linear-gradient(135deg, var(--accent) 0%, #7c5cff 50%, #00ddb8 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
+          <span style={{ color: 'var(--accent)' }}>
             Launched in Days.
           </span>
         </motion.h1>

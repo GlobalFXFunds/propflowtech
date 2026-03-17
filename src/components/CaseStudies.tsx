@@ -20,13 +20,13 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
-    firmName: 'Apex Funded',
+    firmName: 'Prop Firm A',
     tagline: 'From concept to 2,000 active traders in 4 months',
-    founder: 'M. Reyes',
+    founder: 'Founder A',
     founderRole: 'Founder & CEO',
     timeline: 'Launched in 3 days',
     description:
-      'Apex Funded came to PROPFLOWTECH as a brand with a large social media following but zero technical infrastructure. Within 72 hours of onboarding, their fully branded platform was live — complete with MT5 integration, automated challenge management, and a custom trader dashboard. Within four months, they scaled to over 2,000 active traders across 14 countries.',
+      'This firm came to PROPFLOWTECH with a strong brand presence but zero technical infrastructure. Within 72 hours of onboarding, their fully branded platform was live — complete with MT5 integration, automated challenge management, and a custom trader dashboard. Within four months, they scaled to over 2,000 active traders across 14 countries.',
     quote:
       'We went from an idea on a whiteboard to a fully operational prop firm in under a week. The speed was unreal.',
     accentColor: '#00ddb8',
@@ -36,18 +36,18 @@ const caseStudies: CaseStudy[] = [
       { label: 'Countries', value: '14' },
       { label: 'Accounts Created', value: '5,400+' },
     ],
-    tags: ['MT5', 'Social Media Launch', 'High Growth'],
+    tags: ['MT5', 'Brand-Led Launch', 'High Growth'],
   },
   {
-    firmName: 'Nordic Capital FX',
-    tagline: 'European prop firm scaled to 4,500 accounts in 6 months',
-    founder: 'K. Lindström',
+    firmName: 'Prop Firm B',
+    tagline: 'Scaled to 4,500 accounts in 6 months across Europe',
+    founder: 'Founder B',
     founderRole: 'Managing Director',
     timeline: 'Launched in 2 days',
     description:
-      'Nordic Capital FX needed a compliant, multi-language platform to serve the European market. PROPFLOWTECH delivered a white-label solution with TradeLocker integration, multi-currency payment processing, and GDPR-compliant data handling. Their focus on the Scandinavian market allowed them to dominate a niche that larger firms overlooked.',
+      'This firm needed a compliant, multi-language platform to serve the European market. PROPFLOWTECH delivered a white-label solution with TradeLocker integration, multi-currency payment processing, and GDPR-compliant data handling. By focusing on an underserved regional niche, they were able to grow rapidly where larger firms had overlooked the opportunity.',
     quote:
-      'The compliance framework alone saved us months of legal work. We were able to focus entirely on building our brand in the Nordics.',
+      'The compliance framework alone saved us months of legal work. We were able to focus entirely on building our brand and acquiring traders.',
     accentColor: '#00aaff',
     metrics: [
       { label: 'Time to Launch', value: '2 days' },
@@ -58,13 +58,13 @@ const caseStudies: CaseStudy[] = [
     tags: ['TradeLocker', 'European Market', 'Multi-Language'],
   },
   {
-    firmName: 'TradeVault Pro',
-    tagline: 'Influencer-led firm hit $120K monthly revenue in 90 days',
-    founder: 'D. Okafor',
+    firmName: 'Prop Firm C',
+    tagline: 'Educator-led firm hit $120K monthly revenue in 90 days',
+    founder: 'Founder C',
     founderRole: 'Founder',
     timeline: 'Launched in 4 days',
     description:
-      'TradeVault Pro was founded by a trading educator with 180K YouTube subscribers. They leveraged their existing audience to drive immediate traction. PROPFLOWTECH handled the complete technical buildout — including a custom affiliate system that turned their student community into a referral engine. The result: $120K in monthly revenue within 90 days of launch.',
+      'Founded by a trading educator with a large online following, this firm leveraged an existing audience to drive immediate traction. PROPFLOWTECH handled the complete technical buildout — including a custom affiliate system that turned their student community into a referral engine. The result: $120K in monthly revenue within 90 days of launch.',
     quote:
       'I had the audience, but I had no idea how to build a prop firm. PROPFLOWTECH made it possible without me writing a single line of code.',
     accentColor: '#7c5cff',
@@ -74,7 +74,7 @@ const caseStudies: CaseStudy[] = [
       { label: 'Affiliate Referrals', value: '840+' },
       { label: 'Active Traders', value: '3,200+' },
     ],
-    tags: ['Influencer Launch', 'Affiliate System', 'Rapid Scale'],
+    tags: ['Educator Launch', 'Affiliate System', 'Rapid Scale'],
   },
 ];
 
